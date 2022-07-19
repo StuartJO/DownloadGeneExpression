@@ -28,7 +28,7 @@ data_scaled[data == 0]=0
 if args.parc:
     parc=surface.load_surf_data(args.parc)
     nparc=max(parc)
-    for i in range(1, nparc):
+    for i in range(1, nparc+1):
         nverts = len(np.extract(parc==i,parc))
         data_scaled[parc == i] = sum(data_scaled[parc == i])/nverts
 
