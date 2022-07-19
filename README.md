@@ -14,9 +14,9 @@ Plus any of the dependencies these require.
 
 Run
 
-./GetDATA.sh
+./GetDATA.sh PATH/TO/DOWNLOAD/DATA/TO TEXT/FILE/OF/GENES.txt
 
-You will need to in the script itself specify where all the data should be saved (DIR) and provide a list of genes (Entrez IDs) you want to download in a text file. I attached an example
+The first positional argument is the directory to download the files to, while the second should be a list of genes (labelled according to their Entrez IDs) to download. See AHBAEntrez.txt for an example.
 
 ## Visualise gene expression maps
 
@@ -28,4 +28,4 @@ The surface you want to plot it on needs to be the first argument (either lh.whi
 
 mris_convert -f ${GENEID}_mRNA_lh.mgh lh.white lh.geneID_${GENEID}.gii
 
-Hopefully this works!
+Hopefully this works! The plotting code works for one gene at a time, if you want to just save out multiple maps quickly let me know and I can make that change.
