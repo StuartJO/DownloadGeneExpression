@@ -3,7 +3,22 @@ Get smoothed gene maps from Gryglewski et al
 
 Hello Marti!
 
-Here is some code to download and visualise gene expression maps.
+Here is some code to download and visualise gene expression maps. To run this code (for visualisation) you need to following modules installed:
+
+numpy
+nilearn
+
+Plus any of the dependencies these require.
+
+## Download files
+
+Run
+
+./GetDATA.sh
+
+You will need to in the script itself specify where all the data should be saved (DIR) and provide a list of genes (Entrez IDs) you want to download in a text file. I attached an example
+
+## Visualise gene expression maps
 
 To visualise the maps in a browser you can run the code like follows:
 
