@@ -1,6 +1,5 @@
 #!/bin/env bash
 
-
 USE_MRTRIX=0;
 
 if [ "${USE_MRTRIX}" == 1 ]; then 
@@ -10,10 +9,12 @@ module load mrtrix
 fi
 
 # Set directory where to save data
-DIR="/projects/hf49/Stuart/AHBA_wholebrain"
+#DIR="/projects/hf49/Stuart/AHBA_wholebrain"
+DIR=$1
 
 # Location of genes according to Entrez ID
-GENE_LIST="${DIR}/AHBAEntrez.txt"
+#GENE_LIST="${DIR}/AHBAEntrez.txt"
+GENE_LIST=$2
 
 # Set to 1 to put the data in compressed format. If compressed it will use up less space (duhhh) but if trying to access the data it will take longer.
 # If uncompressed will take up space (duhhhhhhhh) but will be quick to access. Compression requires the use of MRtrix, although you can use any other software you want to do so
