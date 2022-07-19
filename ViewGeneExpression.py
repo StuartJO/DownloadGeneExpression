@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("SURFACE", help="file of the surface to plot the gene expression on (lh.white ; lh.pial ; lh.inflated)")
 parser.add_argument("GENEMAP", help=".gii file of gene expression to project onto the surface")
 parser.add_argument("--parc",help="file of a parcellation to use for smoothing")
-parser.add_argument("--parc_rescale", help="Rescale after applying the parcellation",type=int)
+parser.add_argument("--parc_rescale", help="Rescale after applying the parcellation, this emphasises the spatial variation but the actual measure isn't so interpretable",type=int)
 args = parser.parse_args()
 
 data=surface.load_surf_data(args.GENEMAP)
@@ -24,6 +24,8 @@ data_scaled = scale_min + (((data-min_value)/(max_value-min_value))*(scale_max-s
 
 data_scaled[data == 0]=0
 
+colorbar_on=True
+
 # Average across parcels if a parcellation is provided
 if args.parc:
     parc=surface.load_surf_data(args.parc)
@@ -37,8 +39,11 @@ if args.parc:
             max_value= max(data_nonzero)
             data_scaled = scale_min + (((data_scaled-min_value)/(max_value-min_value))*(scale_max-scale_min))
             data_scaled[data == 0]=0
+            colorbar_on=False
 
-view = plotting.view_surf(args.SURFACE, data_scaled,cmap='turbo', symmetric_cmap=False,threshold=scale_min/2)
+thr_val = scale_min/2
+
+view = plotting.view_surf(args.SURFACE, data_scaled,cmap='turbo', symmetric_cmap=False,threshold=thr_val,colorbar=colorbar_on)
 
 view.open_in_browser()
 
