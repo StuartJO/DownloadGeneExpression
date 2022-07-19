@@ -29,10 +29,12 @@ python ./ViewGeneExpression.py lh.white lh.geneID_793.gii
 ```
 
 <img src="./example_plots/Nonsmoothed.png" width="100%">
-The surface you want to plot it on needs to be the first argument (either lh.white or lh.pial or lh.inflated) while the second is the gene expression map in .gii format. You can also input a parcellation to smooth the data (there are some artefacts in the data, you can see this polka dot type pattern across the cortex where some vertices gene expression is much higher/lower than their surroundings, unsure what causes this but it is some issue with how this data was processed. Averaging gene expression across a parcel will fix this to an extent). To input a parcellation you can run the following (I provided an example parcellation you can use)
+The surface you want to plot it on needs to be the first argument (either lh.white or lh.pial or lh.inflated) while the second is the gene expression map in .gii format. You can also input a parcellation to smooth the data (there are some artefacts in the data, you can see this polka dot type pattern across the cortex where some vertices gene expression is much higher/lower than their surroundings, unsure what causes this but it is some issue with how this data was processed. Averaging gene expression across a parcel will fix this to an extent). To input a parcellation you can run the following (I provided an example parcellation you can use):
+
 ```
 python ./ViewGeneExpression.py lh.white lh.geneID_793.gii --parc lh.Schaefer_1000_7Net.annot
 ```
+
 <img src="./example_plots/Smoothed.png" width="100%">
 Because of the way that the code used by this function handles colourmaps, the gene expression will only cover a small range of the colourmap (the medial wall, which has an expression of 0, ruins all the fun). To emphasise the spatial variation of the gene expression do (this will only work if a parcellation is being used):
 
