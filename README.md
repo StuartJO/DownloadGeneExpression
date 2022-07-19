@@ -6,6 +6,7 @@ Hello Marti!
 Here is some code to download and visualise gene expression maps. To run this code (for visualisation) you need to following modules installed:
 
 numpy
+
 nilearn
 
 Plus any of the dependencies these require.
