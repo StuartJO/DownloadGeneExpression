@@ -1,6 +1,4 @@
 #!/bin/env bash
-module load mrtrix
-module load freesurfer
 
 DIR="/projects/hf49/Stuart/AHBA_wholebrain"
 GENE_LIST="${DIR}/AHBAEntrez.txt"
