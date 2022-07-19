@@ -24,7 +24,11 @@ To visualise the maps in a browser you can run the code like follows:
 
 python ./ViewGeneExpression.py lh.white lh.geneID_793.gii
 
-The surface you want to plot it on needs to be the first argument (either lh.white or lh.pial or lh.inflated) while the second is the gene expression map in .gii format. If you have downloaded lots of the gene expression maps, you can run GetSurfaceGeneProj.sh (note you will need to set it so DIR is the directory where all the unzip folders can be found and GENE_LIST is set to a text file containing a list of the Entrez IDs) to convert the required files to .gii. Alternatively just run (where GENEID is the Entrez IDs)
+The surface you want to plot it on needs to be the first argument (either lh.white or lh.pial or lh.inflated) while the second is the gene expression map in .gii format. You can also input a parcellation to smooth the data (there are some artefacts in the data, you can see this polka dot type pattern across the cortex where some vertices gene expression is much higher/lower than their surroundings, unsure what causes this but it is some issue with how this data was processed. Averaging gene expression across a parcel will fix this to an extent). To input a parcellation you can run the following (I provided an example parcellation you can use)
+
+python ./ViewGeneExpression.py lh.white lh.geneID_793.gii -parc lh.Schaefer_1000_7Net.annot
+
+To convert the .mgh files to the .gii format, if you have downloaded lots of the gene expression maps, you can run GetSurfaceGeneProj.sh (note you will need to set it so DIR is the directory where all the unzip folders can be found and GENE_LIST is set to a text file containing a list of the Entrez IDs) to convert the required files to .gii. Alternatively just run (where GENEID is the Entrez IDs)
 
 mris_convert -f ${GENEID}_mRNA_lh.mgh lh.white lh.geneID_${GENEID}.gii
 
